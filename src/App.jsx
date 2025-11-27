@@ -29,7 +29,9 @@ function App() {
         {/* ABOUT */}
         <section id="about" className="section-padding container">
           <h2>Our Mission</h2>
-          <p>Solucon was founded on the principle of bridging the gap between innovative strategy and practical implementation.</p>
+          <p>I am self employed at a two man Tech Start-Up by Willie Van Rooyen and Remoratile Tjia(Myself). 
+My role is to come up with innovative solutions for the future students of Universities and High School. To help modernise and Digitise Learning material as far as possible.
+Our other responsibilities are to build solutions for our country to help put an end poverty and under representation.</p>
         </section>
 
         {/* SERVICES */}
