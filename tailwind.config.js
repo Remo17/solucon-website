@@ -1,25 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        ink: "#0c0c0d",           // background (not pure black)
-        line: "rgb(31, 31, 33)",  // borders
+        ink: "#0c0c0d",
+        line: "rgb(31 31 33)",
         paper: "rgba(255,255,255,0.92)",
         muted: "rgba(255,255,255,0.70)",
         dim: "rgba(255,255,255,0.55)",
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-      },
-      boxShadow: {
-        framerInset: "inset -5px -5px 250px 0px rgba(255, 255, 255, 0.02)",
-      },
-      borderRadius: {
-        xl2: "1.25rem",
-        xl3: "1.75rem",
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Arial",
+          "sans-serif",
+        ],
+        display: [
+          "Space Grotesk",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
     },
   },

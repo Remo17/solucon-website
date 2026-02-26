@@ -1,41 +1,66 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;600;700;800&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Minimal, Apple-like base defaults */
 @layer base {
-  html { scroll-behavior: smooth; }
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
-    background: #0c0c0d; /* exact background */
-    color: rgba(255,255,255,0.92);
-    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    @apply bg-white text-zinc-950 antialiased dark:bg-zinc-950 dark:text-zinc-50;
   }
 
-  /* Subtle SVG noise texture overlay */
-  body::before{
-    content:"";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.10;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27160%27%20height%3D%27160%27%20viewBox%3D%270%200%20160%20160%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%27%20numOctaves%3D%274%27%20stitchTiles%3D%27stitch%27/%3E%3C/filter%3E%3Crect%20width%3D%27160%27%20height%3D%27160%27%20filter%3D%27url(%23n)%27%20opacity%3D%270.35%27/%3E%3C/svg%3E");
-    background-size: 220px 220px;
-    mix-blend-mode: overlay;
+  /* Clean selection */
+  ::selection {
+    background: rgba(0, 0, 0, 0.12);
   }
-
-  /* Keep content above the noise */
-  #root { position: relative; z-index: 1; }
+  .dark ::selection {
+    background: rgba(255, 255, 255, 0.18);
+  }
 }
 
+/* Reusable components */
 @layer components {
-  /* EXACT Framer glass-morphism properties you provided */
-  .framer-glass-card {
-    background: radial-gradient(100% 100% at 0% 0%, rgba(25, 25, 31, 0.27) 0%, rgba(25, 25, 31, 1) 98.9%);
-    backdrop-filter: blur(21px);
-    border: 1px solid rgb(31, 31, 33);
-    box-shadow: inset -5px -5px 250px 0px rgba(255, 255, 255, 0.02);
+  .containerX {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+
+  .card {
+    @apply rounded-2xl border border-zinc-200/70 bg-white/70 shadow-sm backdrop-blur
+           dark:border-white/10 dark:bg-white/5;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium
+           transition;
+  }
+  .btnPrimary {
+    @apply bg-zinc-950 text-white hover:bg-zinc-800
+           dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200;
+  }
+  .btnGhost {
+    @apply border border-zinc-200/80 bg-white hover:bg-zinc-50
+           dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10;
+  }
+
+  .link {
+    @apply text-zinc-600 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white;
+  }
+
+  .h1 {
+    @apply text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl;
+  }
+  .h2 {
+    @apply text-3xl font-semibold tracking-tight md:text-4xl;
+  }
+  .p {
+    @apply text-[15px] leading-7 text-zinc-600 dark:text-zinc-300;
   }
 }
