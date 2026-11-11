@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://solucon-website-prod.web.app/sitemap.xml
